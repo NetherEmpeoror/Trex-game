@@ -79,7 +79,7 @@ function setup() {
 
 function draw() {
   
-  background(255);
+  background("darkgray");
   //displaying score
   text("Score: "+ score, 500,50);
   
@@ -131,7 +131,11 @@ function draw() {
      //change the trex animation
       trex.changeAnimation("collided", trex_collided);
     
-     
+      if(mousePressedOver(restart)) {
+        reset();
+      }
+  
+  
      
       ground.velocityX = 0;
       trex.velocityY = 0
@@ -149,11 +153,7 @@ function draw() {
   //stop trex from falling down
   trex.collide(invisibleGround);
   
-  if(mousePressedOver(restart)) {
-      reset();
-    }
-
-
+ 
   drawSprites();
 }
 
